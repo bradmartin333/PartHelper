@@ -14,8 +14,7 @@ class AltiumParameter:
         self.manufacturer_pn = cols[11]
         self.notes = cols[12]
         self.parata_pn = cols[13]
-        # Everything is RoHS these days
-        self.rohs = 'Yes' if cols[14] != '*' else '*'
+        self.rohs = cols[14]
         self.tolerance = cols[15]
         self.value = cols[16]
         self.voltage = cols[17]
@@ -56,3 +55,25 @@ def sheet_to_param_list(sheet, param_class):
             cols.append(cell.value)
         param_list.append(param_class(cols))
     return param_list
+
+def param_list_to_sheet(param_list, sheet):
+    for i in range(len(param_list)):
+        sheet.cell(row=i+2, column=1).value = param_list[i].object_type
+        sheet.cell(row=i+2, column=2).value = param_list[i].document
+        sheet.cell(row=i+2, column=3).value = param_list[i].identifier
+        sheet.cell(row=i+2, column=4).value = param_list[i].color
+        sheet.cell(row=i+2, column=5).value = param_list[i].cost_1
+        sheet.cell(row=i+2, column=6).value = param_list[i].cost_1000
+        sheet.cell(row=i+2, column=7).value = param_list[i].current
+        sheet.cell(row=i+2, column=8).value = param_list[i].distributor
+        sheet.cell(row=i+2, column=9).value = param_list[i].distributor_pn
+        sheet.cell(row=i+2, column=10).value = param_list[i].help_url
+        sheet.cell(row=i+2, column=11).value = param_list[i].manufacturer
+        sheet.cell(row=i+2, column=12).value = param_list[i].manufacturer_pn
+        sheet.cell(row=i+2, column=13).value = param_list[i].notes
+        sheet.cell(row=i+2, column=14).value = param_list[i].parata_pn
+        sheet.cell(row=i+2, column=15).value = param_list[i].rohs
+        sheet.cell(row=i+2, column=16).value = param_list[i].tolerance
+        sheet.cell(row=i+2, column=17).value = param_list[i].value
+        sheet.cell(row=i+2, column=18).value = param_list[i].voltage
+        sheet.cell(row=i+2, column=19).value = param_list[i].wattage
