@@ -4,6 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # User-specific files
+digikey_api_key.txt
+token_storage.json
 *.rsuser
 *.suo
 *.user
