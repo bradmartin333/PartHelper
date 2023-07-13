@@ -16,18 +16,22 @@ def setup():
 
     else:
         print("Error: digikey_api_key.txt not found")
-        print("Create a file called digikey_api_key.txt with 2 lines")
-        print("Line 1: Client ID")
-        print("Line 2: Client Secret")
+        print("Follow the instructions in digikey_cache/README.md")
         exit(1)
 
     # Set environment variables
-    os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'True'
+    os.environ['DIGIKEY_CLIENT_SANDBOX'] = 'False'
     os.environ['DIGIKEY_STORAGE_PATH'] = 'digikey_cache'
 
 
-def get_product(manufacturer_pn):
-    search_request = KeywordSearchRequest(
-        keywords=ziuz.manufacturer_pn, record_count=1)
+def get_product(mfn):
+    search_request = KeywordSearchRequest(keywords=mfn, record_count=10)
     result = digikey.keyword_search(body=search_request)
-    return result.to_dict()['products'][0]
+    return result.to_dict()
+
+
+def get_cost(product, qty):
+    for break_pricing in product['standard_pricing']:
+        if break_pricing['break_quantity'] == qty:
+            return break_pricing['unit_price']
+    return -1
