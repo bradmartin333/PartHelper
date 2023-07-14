@@ -29,6 +29,7 @@ This will really only be useful as a starting point for other projects since my 
 6. Go to the `Production Apps` tab
 7. Click `Create Production App` and follow the prompts
     - The callback URL must be `https://localhost:8139/digikey_callback`
+    - Turn on the radio button for `Product Information` (The first one)
 8. Click the newly created app
 9. Show the `Client ID` and `Client Secret`
 10. Copy them (Each on their own line and in that order) into `digikey_api_key.txt` and save

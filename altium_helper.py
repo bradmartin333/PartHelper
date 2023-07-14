@@ -117,9 +117,8 @@ for altium_param in alitum_params:
             altium_param.tolerance = 'n/a'
     if altium_param.value != '*':
         full_value = exact_mfg_product['parameters'][-1]['value']
-        # Remove spaces between value and unit for capacitors and inductors
         full_value = full_value.replace(' µF', 'µF').replace(' pF', 'pF').replace(
-            ' A', 'A').replace(' mH', 'mH').replace(' uH', 'uH')
+            ' A', 'A').replace(' mH', 'mH').replace(' uH', 'uH').replace(' kOhms', 'k')
         # Discard ohms units for resistors
         trimmed_value = full_value.split(' ')[0]
         # Make 10000pF -> 10nF
