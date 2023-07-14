@@ -23,8 +23,8 @@ combined_internal_pns = []
 combined_mfn_col = 3
 for row in combined.iter_rows(min_row=2):
     combined_mfns.append(row[3].value)
-    internal_1 = row[6].value
-    internal_2 = row[7].value
+    internal_1 = row[5].value
+    internal_2 = row[6].value
     if internal_1 is None:
         combined_internal_pns.append(internal_2)
     else:
@@ -86,9 +86,13 @@ for altium_param in alitum_params:
     if altium_param.rohs != '*':
         altium_param.rohs = 'Yes' if 'ROHS3 Compliant' in str(product) else 'No'
     if altium_param.tolerance != '*':
+        found = False
         for param in exact_mfg_product['parameters']:
             if 'Tolerance' in param['parameter']:
+                found = True
                 altium_param.tolerance = param['value']
+        if not found:
+            altium_param.tolerance = 'n/a'
     if altium_param.value != '*':
         altium_param.value = exact_mfg_product['parameters'][-1]['value']
     if altium_param.voltage != '*':
