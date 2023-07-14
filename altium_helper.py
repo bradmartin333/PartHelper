@@ -3,6 +3,14 @@ import openpyxl
 import eda_parameters as eda
 import digikey_api as dk
 
+# TODO
+# Remove 'Ohms'
+# Remove @ Hz info
+# Remove spaces for values
+# Make 10000 pF -> 10nF
+# Fill in true empties with 'n/a'
+# Call out possible misses
+
 dk.setup()
 
 for file in os.listdir(os.getcwd()):
@@ -82,7 +90,7 @@ for altium_param in alitum_params:
     altium_param.help_url = exact_mfg_product['primary_datasheet']
     altium_param.manufacturer = exact_mfg_product['manufacturer']['value']
     altium_param.manufacturer_pn = exact_mfg_product['manufacturer_part_number']
-    altium_param.parata_pn = combined_internal_pns[combined_mfns.index(mfn)]
+    altium_param.internal_pn = combined_internal_pns[combined_mfns.index(mfn)]
     if altium_param.rohs != '*':
         altium_param.rohs = 'Yes' if 'ROHS3 Compliant' in str(product) else 'No'
     if altium_param.tolerance != '*':

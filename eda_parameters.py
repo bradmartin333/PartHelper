@@ -13,7 +13,7 @@ class AltiumParameter:
         self.manufacturer = cols[10]
         self.manufacturer_pn = cols[11]
         self.notes = cols[12]
-        self.parata_pn = cols[13]
+        self.internal_pn = cols[13]
         self.rohs = cols[14]
         self.tolerance = cols[15]
         self.value = cols[16]
@@ -21,7 +21,7 @@ class AltiumParameter:
         self.wattage = cols[18]
 
     def __str__(self):
-        return f"Object Type: {self.object_type}\nDocument: {self.document}\nIdentifier: {self.identifier}\nColor: {self.color}\nCost 1: {self.cost_1}\nCost 1000: {self.cost_1000}\nCurrent: {self.current}\nDistributor: {self.distributor}\nDistributor PN: {self.distributor_pn}\nHelp URL: {self.help_url}\nManufacturer: {self.manufacturer}\nManufacturer PN: {self.manufacturer_pn}\nNotes: {self.notes}\nParata PN: {self.parata_pn}\nRoHS: {self.rohs}\nTolerance: {self.tolerance}\nValue: {self.value}\nVoltage: {self.voltage}\nWattage: {self.wattage}\n"
+        return f"Object Type: {self.object_type}\nDocument: {self.document}\nIdentifier: {self.identifier}\nColor: {self.color}\nCost 1: {self.cost_1}\nCost 1000: {self.cost_1000}\nCurrent: {self.current}\nDistributor: {self.distributor}\nDistributor PN: {self.distributor_pn}\nHelp URL: {self.help_url}\nManufacturer: {self.manufacturer}\nManufacturer PN: {self.manufacturer_pn}\nNotes: {self.notes}\nInternal PN: {self.internal_pn}\nRoHS: {self.rohs}\nTolerance: {self.tolerance}\nValue: {self.value}\nVoltage: {self.voltage}\nWattage: {self.wattage}\n"
 
 
 class KiCadParameter:
@@ -71,7 +71,7 @@ def param_list_to_sheet(param_list, sheet):
         sheet.cell(row=i+2, column=11).value = param_list[i].manufacturer
         sheet.cell(row=i+2, column=12).value = param_list[i].manufacturer_pn
         sheet.cell(row=i+2, column=13).value = param_list[i].notes
-        sheet.cell(row=i+2, column=14).value = param_list[i].parata_pn
+        sheet.cell(row=i+2, column=14).value = param_list[i].internal_pn
         sheet.cell(row=i+2, column=15).value = param_list[i].rohs
         sheet.cell(row=i+2, column=16).value = param_list[i].tolerance
         sheet.cell(row=i+2, column=17).value = param_list[i].value
