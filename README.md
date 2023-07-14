@@ -40,3 +40,7 @@ This will really only be useful as a starting point for other projects since my 
 3. Note if a `Manual check required for` message is displayed at the end
 4. Open the generated .xlsx and verify its contents
 5. Copy and paste the contents into its future home
+
+## Notes
+
+- There is a daily rate limit of 1000 requests per day for the Digikey API
