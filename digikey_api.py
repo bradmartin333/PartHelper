@@ -3,7 +3,6 @@ import digikey
 from pathlib import Path
 from digikey.v3.productinformation import KeywordSearchRequest
 from digikey.v3.batchproductdetails import BatchProductDetailsRequest
-import pyperclip
 
 def setup():
     # Read all lines from key file
@@ -40,8 +39,9 @@ def get_all_keys(d):
 
 def get_cost_1000(product):
     full_str = str(product)
-    pyperclip.copy(full_str)
     break_quantity_index = full_str.find("'break_quantity': 1000,")
+    if break_quantity_index == -1:
+        return 'N/A'
     unit_price_index = full_str.find("'unit_price': ", break_quantity_index)
     end_index = full_str.find(",", unit_price_index)
     return '$' + str(float(full_str[unit_price_index + 14:end_index]))

@@ -58,6 +58,18 @@ for altium_param in alitum_params:
 
     print(mfn)
     product = dk.get_product(mfn)
+    original_mfn = mfn
+    while product['exact_manufacturer_products_count'] == 0:
+        print("Could not find " + mfn)
+        mfn = input("Enter a new mfn: ")
+        if len(mfn) == 0 or len(mfn) > 100:
+            print("Invalid mfn")
+            continue
+        for param in kicad_params:
+            if param.manufacturer_pn == original_mfn:
+                param.manufacturer_pn = mfn
+        combined_mfns[combined_mfns.index(original_mfn)] = mfn
+        product = dk.get_product(mfn)
     exact_mfg_product = product['exact_manufacturer_products'][0]
     altium_param.cost_1 = dk.get_cost_1(exact_mfg_product)
     altium_param.cost_1000 = dk.get_cost_1000(product)
@@ -88,5 +100,5 @@ for altium_param in alitum_params:
             if 'Power' in param['parameter']:
                 altium_param.wattage = param['value']
 
-    eda.param_list_to_sheet(alitum_params, output)
-    wb.save("test.xlsx")
+eda.param_list_to_sheet(alitum_params, output)
+wb.save("test.xlsx")
