@@ -7,7 +7,7 @@ from digikey.v3.batchproductdetails import BatchProductDetailsRequest
 
 def setup():
     # Read all lines from key file
-    key_file = Path("digikey_api_key.txt")
+    key_file = Path(os.path.join('digikey_cache', 'digikey_api_key.txt'))
     if key_file.is_file():
         with open(key_file, 'r') as f:
             lines = f.readlines()
@@ -25,7 +25,7 @@ def setup():
 
 
 def get_product(mfn):
-    search_request = KeywordSearchRequest(keywords=str(mfn), record_count=1)
+    search_request = KeywordSearchRequest(keywords=mfn, record_count=1)
     result = digikey.keyword_search(body=search_request)
     return result.to_dict()
 

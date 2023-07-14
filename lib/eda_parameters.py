@@ -1,24 +1,24 @@
 class AltiumParameter:
     def __init__(self, cols):
-        self.object_type = cols[0]
-        self.document = cols[1]
-        self.identifier = cols[2]
-        self.color = cols[3]
-        self.cost_1 = cols[4]
-        self.cost_1000 = cols[5]
-        self.current = cols[6]
-        self.distributor = cols[7]
-        self.distributor_pn = cols[8]
-        self.help_url = cols[9]
-        self.manufacturer = cols[10]
-        self.manufacturer_pn = cols[11]
-        self.notes = cols[12]
-        self.internal_pn = cols[13]
-        self.rohs = cols[14]
-        self.tolerance = cols[15]
-        self.value = cols[16]
-        self.voltage = cols[17]
-        self.wattage = cols[18]
+        self.object_type = str(cols[0])
+        self.document = str(cols[1])
+        self.identifier = str(cols[2])
+        self.color = str(cols[3])
+        self.cost_1 = str(cols[4])
+        self.cost_1000 = str(cols[5])
+        self.current = str(cols[6])
+        self.distributor = str(cols[7])
+        self.distributor_pn = str(cols[8])
+        self.help_url = str(cols[9])
+        self.manufacturer = str(cols[10])
+        self.manufacturer_pn = str(cols[11])
+        self.notes = str(cols[12])
+        self.internal_pn = str(cols[13])
+        self.rohs = str(cols[14])
+        self.tolerance = str(cols[15])
+        self.value = str(cols[16])
+        self.voltage = str(cols[17])
+        self.wattage = str(cols[18])
 
     def __str__(self):
         return f"Object Type: {self.object_type}\nDocument: {self.document}\nIdentifier: {self.identifier}\nColor: {self.color}\nCost 1: {self.cost_1}\nCost 1000: {self.cost_1000}\nCurrent: {self.current}\nDistributor: {self.distributor}\nDistributor PN: {self.distributor_pn}\nHelp URL: {self.help_url}\nManufacturer: {self.manufacturer}\nManufacturer PN: {self.manufacturer_pn}\nNotes: {self.notes}\nInternal PN: {self.internal_pn}\nRoHS: {self.rohs}\nTolerance: {self.tolerance}\nValue: {self.value}\nVoltage: {self.voltage}\nWattage: {self.wattage}\n"
@@ -59,19 +59,18 @@ class AltiumParameter:
 
 class KiCadParameter:
     def __init__(self, cols):
-        self.item_number = cols[0]
-        self.sourced = cols[1]
-        self.placed = cols[2]
-        self.references = cols[3]
-        self.amps = cols[4]
-        self.manufacturer_pn = cols[5]
-        self.manufacturer = cols[6]
-        self.tolerance = cols[7]
-        self.type = cols[8]
-        self.voltage = cols[9]
-        self.value = cols[10]
-        self.footprint = cols[11]
-        self.quantity = cols[12]
+        self.item_number = str(cols[0])
+        self.sourced = str(cols[1])
+        self.placed = str(cols[2])
+        self.references = str(cols[3])
+        self.amps = str(cols[4])
+        self.manufacturer_pn = str(cols[5])
+        self.manufacturer = str(cols[6])
+        self.tolerance = str(cols[7])
+        self.type = str(cols[8])
+        self.voltage = str(cols[9])
+        self.value = str(cols[10])
+        self.footprint = str(cols[11])
 
     def __str__(self):
         return f"References: {self.references}\nAmps: {self.amps}\nManufacturer: {self.manufacturer}\nManufacturer PN: {self.manufacturer_pn}\nTolerance: {self.tolerance}\nType: {self.type}\nVoltage: {self.voltage}\nValue: {self.value}\nFootprint: {self.footprint}\n"

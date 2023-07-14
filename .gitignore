@@ -6,6 +6,7 @@
 # User-specific files
 digikey_api_key.txt
 token_storage.json
+*.pickle
 *.xlsx
 *.rsuser
 *.suo
